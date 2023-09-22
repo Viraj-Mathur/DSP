@@ -1,0 +1,22 @@
+%Circular Convolutionclc
+clc
+clear all
+close all
+x = [1 0 2.5 1.5];
+h1 = [1 1 0.5 2];
+h  = fliplr(h1);
+y = zeros(1,length(x));
+
+for i = 1:length(x)
+    x = [1 0 2.5 1.5]
+    y(i) = sum(x.*circshift(h,[0,i]))
+end
+
+cconv(x,h1)
+figure
+stem(y);
+grid on
+title("Circular Convolution");
+xlabel("sample (n)")
+ylabel("Amplitude")
+legend()
